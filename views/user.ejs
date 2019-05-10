@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <title>Login</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <%- include('partials/head.ejs') %>
+  </head>
+  <body>
+
+    <div class="login-page-container">
+   
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <h1>Welcome to the Vending Machine Simulator!</h1>
+    <!--Retrieve Movie Form-->
+    <div class= "user-vending">
+      
+        <div class="cheezits">
+                <img
+                  src="/images/cheezits.jpg"
+                  alt="Cheezit item"
+                  style="height: 80px;"
+                />
+                <p>Item ID: 101</p>
+                <p>Price: $1.25 </p>
+                <p>Quantity In-stock: </p>
+                <input id="cheezits2" style="width:45px;"/>
+          <button type="button" class="btn btn-primary" onclick="{getQuantityCheezits()}">
+            Check Quantity
+        </button>
+        </div>
+        <div class="doritos">
+            <img
+            src="/images/doritos.png"
+            alt="Dorito item"
+            style="height: 80px;"
+          />
+          <p>Item ID: 102</p>
+          <p>Price: $1.75 </p>
+          <p>Quantity In-stock: </p>
+          <input id="dorito2" style="width:45px;"/>
+          <button type="button" class="btn btn-primary" onclick="{getQuantityDorito()}">
+            Check Quantity
+        </button>
+        </div>
+        <div class="fritos">
+            <img
+            src="/images/fritos.jpg"
+            alt="Dorito item"
+            style="height: 80px;"
+          />
+          <p>Item ID: 103</p>
+          <p>Price: $1.25 </p>
+          <p>Quantity In-stock: </p>
+          <input id="frito2" style="width:45px;"/>
+          <button type="button" class="btn btn-primary" onclick="{getQuantityFrito()}">
+            Check Quantity
+        </button>
+        </div>
+        <div class="gummyworms">
+            <img
+            src="/images/gummyworms.jpg"
+            alt="Dorito item"
+            style="height: 90px;"
+          />
+          <p>Item ID: 104</p>
+          <p>Price: $2.75 </p>
+          <p>Quantity In-stock: </p>
+          <input id="gummyworm2" style="width:45px;"/>
+          <button type="button" class="btn btn-primary" onclick="{getQuantityGummyWorm()}">
+            Check Quantity
+        </button>
+        </div>
+
+        <div class="honeybun">
+            <img
+            src="/images/honeybun.jpg"
+            alt="Dorito item"
+            style="height: 90px;"
+          />
+          <p>Item ID: 105</p>
+          <p>Price: $2.25 </p>
+          <p>Quantity In-stock: </p>
+          <input id="honeybun2" style="width:45px;"/>
+          <button type="button" class="btn btn-primary" onclick="{getQuantityHoneyBun()}">
+            Check Quantity
+        </button>
+        </div>
+        <div class="oreo">
+          <img
+          src="/images/oreo.jpg"
+          alt="Dorito item"
+          style="height: 90px;"
+        />
+        <p>Item ID: 106</p>
+        <p>Price: $1.75 </p>
+        <p>Quantity In-stock: </p>
+        <input id="oreo2" style="width:45px;"/>
+        <button type="button" class="btn btn-primary" onclick="{getQuantityOreo()}">
+          Check Quantity
+      </button>
+      </div>
+        <div class="MandM">
+            <img
+            src="/images/M&M.jpg"
+            alt="Dorito item"
+            style="height: 65px;"
+          />
+          <p>Item ID: 107</p>
+          <p>Price: $2.00 </p>
+          <p>Quantity In-stock: </p>
+          <input id="MnM2" style="width:45px;"/>
+          <button type="button" class="btn btn-primary" onclick="{getQuantityMandM()}">
+            Check Quantity
+        </button>
+        </div>
+       
+        <div class="reece">
+            <img
+            src="/images/reece.jpg"
+            alt="Dorito item"
+            style="height: 50px;"
+          />
+          <p>Item ID: 108</p>
+          <p>Price: $1.25 </p>
+          <p>Quantity In-stock: </p>
+          <input id="reece2" style="width:45px;"/>
+          <button type="button" class="btn btn-primary" onclick="{getQuantityReece()}">
+            Check Quantity
+        </button>
+        </div>
+ 
+        <div class="trident">
+            <img
+            src="/images/trident.jpg"
+            alt="Dorito item"
+            style="height: 65px;"
+          />
+          <p>Item ID: 109</p>
+          <p>Price: $0.75 </p>
+          <p>Quantity In-stock: </p>
+          <input id="trident2" style="width:45px;"/>
+          <button type="button" class="btn btn-primary" onclick="{getQuantityTrident()}">
+            Check Quantity
+        </button>
+        </div>
+        <div class="twix">
+            <img
+            src="/images/twix.jpg"
+            alt="Dorito item"
+            style="height: 50px;"
+          />
+          <p>Item ID: 110</p>
+          <p>Price: $1.25 </p>
+          <p>Quantity In-stock: </p>
+          <input id="twix2" style="width:45px;"/>
+          <button type="button" class="btn btn-primary" onclick="{getQuantityTwix()}">
+            Check Quantity
+        </button>
+
+        </div>
+        <div class="lays">
+            <img
+            src="/images/lays.png"
+            alt="Dorito item"
+            style="height: 105px;"
+          />
+          <p>Item ID: 111</p>
+          <p>Price: $1.75 </p>
+          <p>Quantity In-stock:</p>
+          <input id="lays2" style="width:45px;"/>
+          <button type="button" class="btn btn-primary" onclick="{getQuantityLays()}">
+            Check Quantity
+        </button>
+        </div>
+        <div class="lifesavers">
+            <img
+            src="/images/lifesavers.jpg"
+            alt="Dorito item"
+            style="height: 35px;"
+          />
+          <p>Item ID: 112</p>
+          <p>Price: $0.75 </p>
+          <p>Quantity In-stock: </p>
+          <input id="lifesaver2" style="width:45px;"/>
+          <button type="button" class="btn btn-primary" onclick="{getQuantityLifeSaver()}">
+            Check Quantity
+        </button>
+        </div>
+          
+  </div>
+
+  <div class="purchase-form">
+    <h3>Machine accepts nickels, dimes, quarters, one dollar and five dollar bills</h3>
+
+  <button type="submit" style="border: 0; background: transparent" onclick="{changeAmountEnteredNickel()}">
+      <img src="/images/nickel.jpg" width="90" height="90" alt="submit" />
+    </button>
+
+    <button type="submit" style="border: 0; background: transparent" onclick="{changeAmountEnteredDime()}">
+      <img src="/images/dime.jpg" width="75" height="75" alt="submit" />
+    </button>
+    <button type="submit" style="border: 0; background: transparent" onclick="{changeAmountEnteredQuarter()}">
+      <img src="/images/quarter.png" width="100" height="100" alt="submit" />
+    </button>
+    <button type="submit" style="border: 0; background: transparent" onclick="{changeAmountEnteredOneDollar()}">
+      <img src="/images/onedollar.jpg" width="175" height="100" alt="submit" />
+    </button>
+    <button type="submit" style="border: 0; background: transparent" onclick="{changeAmountEnteredFiveDollar()}">
+      <img src="/images/fivedollar.jpg" width="175" height="100" alt="submit" />
+    </button>
+
+<br>
+<br>
+
+    <form>
+      <div class="form-group">
+        <label for=""><h4>Money Tendered</h4></label>
+        <input
+          type="text"
+          class="form-control"
+          name="moneyentered"
+          id="moneyentered"
+          aria-describedby="helpId"
+          placeholder="amount entered"
+        />
+
+
+
+        <label for=""><h4>Enter item code</h4></label>
+        <input
+          type="text"
+          class="form-control"
+          name="itemcode"
+          id="itemcode"
+          aria-describedby="helpId"
+          placeholder="item code"
+        />
+      </div>
+    
+      <button type="button" class="btn btn-primary" onclick="{makePurchase()}">
+        Purchase
+    </button>
+    <p>Or, dispense your change </p>
+    <button type="button" class="btn btn-primary" onclick="{dispenseChange()}">
+      Dispense Change
+  </button>
+
+
+    </form>
+
+    <br>
+    <!--The "vending-item-list" id is where the retrieved snack, change or error info goes-->
+  <ul class="list-group" id="vending-item-list"></ul>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <h4>Service Machine</h4>
+
+<!--Restock Snacks form-->
+  <form>
+    <div class="form-group">
+      <label for="">Re-stock Snack:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="snackentered"
+        id="snackentered"
+        aria-describedby="helpId"
+        placeholder="enter item code"
+      />
+
+      <label for="">Enter Service-Key:</label>
+      <input
+        type="text"
+        class="form-control"
+        name="keycode"
+        id="keycode"
+        aria-describedby="helpId"
+        placeholder="service-key number"
+      />
+    </div>
+  
+    <button type="button" class="btn btn-primary" onclick="{restockSnack()}">
+      Restock Snack
+  </button>
+
+  </form>
+  <br>
+  <ul class="list-group" id="service-item-list"></ul>
+
+  </div>
+
+</div>
+   
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.auth, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <script src="auth/firebaseAuth.js"></script>
+  <script src="js/purchaseFunctions.js"></script>
+  <script src="js/inventoryFunctions.js"></script>
+
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDUfr3W9veSLSJARSeAWs4DOV5RsY10VRg",
+      authDomain: "vendingmachine-ae6e9.firebaseapp.com",
+      databaseURL: "https://vendingmachine-ae6e9.firebaseio.com",
+      projectId: "vendingmachine-ae6e9",
+      storageBucket: "vendingmachine-ae6e9.appspot.com",
+      messagingSenderId: "674745101367"
+    };
+    firebase.initializeApp(config);
+  </script>
+</html>
